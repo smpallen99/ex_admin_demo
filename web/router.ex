@@ -1,5 +1,6 @@
 defmodule ExAdminDemo.Router do
   use ExAdminDemo.Web, :router
+  use ExAdmin.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,6 +14,11 @@ defmodule ExAdminDemo.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/admin", ExAdmin do
+    pipe_through :browser
+    admin_routes
+  end
+
   scope "/", ExAdminDemo do
     pipe_through :browser # Use the default browser stack
 
@@ -20,7 +26,7 @@ defmodule ExAdminDemo.Router do
     resources "/users", UserController
     resources "/orders", OrderController
     resources "/line_items", LineItemController
-    
+
     get "/", PageController, :index
   end
 

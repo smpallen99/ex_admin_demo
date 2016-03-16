@@ -39,6 +39,7 @@ defmodule ExAdminDemo.Mixfile do
      {:gettext, "~> 0.9"},
      {:phoenix_haml, github: "smpallen99/phoenix_haml", override: true},
      {:calliope, github: "nurugger07/calliope", override: true},
+     # {:ex_queb, path: "../ex_queb", override: true},
      {:ex_admin, github: "smpallen99/ex_admin"},
      {:cowboy, "~> 1.0"}]
   end

@@ -1,0 +1,19 @@
+%h2 Show order
+
+%ul
+
+  %li
+    %strong User:
+    = @order.user_id
+
+  %li
+    %strong Checked out at:
+    = @order.checked_out_at
+
+  %li
+    %strong Total price:
+    = @order.total_price
+
+
+= link "Edit", to: order_path(@conn, :edit, @order)
+= link "Back", to: order_path(@conn, :index)

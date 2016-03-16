@@ -1,0 +1,23 @@
+%h2 Listing line items
+
+%table.table
+  %thead
+    %tr
+      %th Order
+      %th Product
+      %th Price
+      
+      %th
+  %tbody
+    - for line_item <- @line_items do
+      %tr
+        %td= line_item.order_id
+        %td= line_item.product_id
+        %td= line_item.price
+        
+        %td.text-right
+          = link "Show", to: line_item_path(@conn, :show, line_item), class: "btn btn-default btn-xs"
+          = link "Edit", to: line_item_path(@conn, :edit, line_item), class: "btn btn-default btn-xs"
+          = link "Delete", to: line_item_path(@conn, :delete, line_item), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
+
+= link "New line item", to: line_item_path(@conn, :new)

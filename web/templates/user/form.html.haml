@@ -1,0 +1,22 @@
+- form_for @changeset, @action, fn f ->
+  - if @changeset.action do
+    .alert.alert-danger
+      %p Oops, something went wrong! Please check the errors below.
+
+  .form-group
+    = label f, :username, class: "control-label"
+    = text_input f, :username, class: "form-control"
+    = error_tag f, :username
+
+  .form-group
+    = label f, :email, class: "control-label"
+    = text_input f, :email, class: "form-control"
+    = error_tag f, :email
+
+  .form-group
+    = label f, :password_hash, class: "control-label"
+    = text_input f, :password_hash, class: "form-control"
+    = error_tag f, :password_hash
+
+  .form-group
+    = submit "Submit", class: "btn btn-primary"

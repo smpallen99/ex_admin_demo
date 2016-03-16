@@ -1,0 +1,5 @@
+%h2 Edit line item
+
+= render "form.html", changeset: @changeset, action: line_item_path(@conn, :update, @line_item)
+
+= link "Back", to: line_item_path(@conn, :index)

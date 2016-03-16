@@ -1,0 +1,5 @@
+%h2 New product
+
+= render "form.html", changeset: @changeset, action: product_path(@conn, :create)
+
+= link "Back", to: product_path(@conn, :index)

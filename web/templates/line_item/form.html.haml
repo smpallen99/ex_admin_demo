@@ -1,0 +1,12 @@
+- form_for @changeset, @action, fn f ->
+  - if @changeset.action do
+    .alert.alert-danger
+      %p Oops, something went wrong! Please check the errors below.
+
+  .form-group
+    = label f, :price, class: "control-label"
+    = number_input f, :price, step: "any", class: "form-control"
+    = error_tag f, :price
+
+  .form-group
+    = submit "Submit", class: "btn btn-primary"

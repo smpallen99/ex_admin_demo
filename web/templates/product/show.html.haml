@@ -1,0 +1,35 @@
+%h2 Show product
+
+%ul
+
+  %li
+    %strong Title:
+    = @product.title
+
+  %li
+    %strong Description:
+    = @product.description
+
+  %li
+    %strong Author:
+    = @product.author
+
+  %li
+    %strong Price:
+    = @product.price
+
+  %li
+    %strong Featured:
+    = @product.featured
+
+  %li
+    %strong Available on:
+    = @product.available_on
+
+  %li
+    %strong Image file name:
+    = @product.image_file_name
+
+
+= link "Edit", to: product_path(@conn, :edit, @product)
+= link "Back", to: product_path(@conn, :index)

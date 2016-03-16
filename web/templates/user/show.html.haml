@@ -1,0 +1,19 @@
+%h2 Show user
+
+%ul
+
+  %li
+    %strong Username:
+    = @user.username
+
+  %li
+    %strong Email:
+    = @user.email
+
+  %li
+    %strong Password hash:
+    = @user.password_hash
+
+
+= link "Edit", to: user_path(@conn, :edit, @user)
+= link "Back", to: user_path(@conn, :index)

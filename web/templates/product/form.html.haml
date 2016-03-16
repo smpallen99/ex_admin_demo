@@ -1,0 +1,42 @@
+- form_for @changeset, @action, fn f ->
+  - if @changeset.action do
+    .alert.alert-danger
+      %p Oops, something went wrong! Please check the errors below.
+
+  .form-group
+    = label f, :title, class: "control-label"
+    = text_input f, :title, class: "form-control"
+    = error_tag f, :title
+
+  .form-group
+    = label f, :description, class: "control-label"
+    = text_input f, :description, class: "form-control"
+    = error_tag f, :description
+
+  .form-group
+    = label f, :author, class: "control-label"
+    = text_input f, :author, class: "form-control"
+    = error_tag f, :author
+
+  .form-group
+    = label f, :price, class: "control-label"
+    = number_input f, :price, step: "any", class: "form-control"
+    = error_tag f, :price
+
+  .form-group
+    = label f, :featured, class: "control-label"
+    = checkbox f, :featured, class: "form-control"
+    = error_tag f, :featured
+
+  .form-group
+    = label f, :available_on, class: "control-label"
+    = date_select f, :available_on, class: "form-control"
+    = error_tag f, :available_on
+
+  .form-group
+    = label f, :image_file_name, class: "control-label"
+    = text_input f, :image_file_name, class: "form-control"
+    = error_tag f, :image_file_name
+
+  .form-group
+    = submit "Submit", class: "btn btn-primary"

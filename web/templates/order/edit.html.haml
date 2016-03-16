@@ -1,0 +1,5 @@
+%h2 Edit order
+
+= render "form.html", changeset: @changeset, action: order_path(@conn, :update, @order)
+
+= link "Back", to: order_path(@conn, :index)

@@ -1,0 +1,19 @@
+%h2 Show line item
+
+%ul
+
+  %li
+    %strong Order:
+    = @line_item.order_id
+
+  %li
+    %strong Product:
+    = @line_item.product_id
+
+  %li
+    %strong Price:
+    = @line_item.price
+
+
+= link "Edit", to: line_item_path(@conn, :edit, @line_item)
+= link "Back", to: line_item_path(@conn, :index)

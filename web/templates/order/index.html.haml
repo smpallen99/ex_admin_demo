@@ -1,0 +1,23 @@
+%h2 Listing orders
+
+%table.table
+  %thead
+    %tr
+      %th User
+      %th Checked out at
+      %th Total price
+      
+      %th
+  %tbody
+    - for order <- @orders do
+      %tr
+        %td= order.user_id
+        %td= order.checked_out_at
+        %td= order.total_price
+        
+        %td.text-right
+          = link "Show", to: order_path(@conn, :show, order), class: "btn btn-default btn-xs"
+          = link "Edit", to: order_path(@conn, :edit, order), class: "btn btn-default btn-xs"
+          = link "Delete", to: order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
+
+= link "New order", to: order_path(@conn, :new)

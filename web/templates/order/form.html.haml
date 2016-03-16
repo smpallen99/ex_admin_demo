@@ -1,0 +1,17 @@
+- form_for @changeset, @action, fn f ->
+  - if @changeset.action do
+    .alert.alert-danger
+      %p Oops, something went wrong! Please check the errors below.
+
+  .form-group
+    = label f, :checked_out_at, class: "control-label"
+    = datetime_select f, :checked_out_at, class: "form-control"
+    = error_tag f, :checked_out_at
+
+  .form-group
+    = label f, :total_price, class: "control-label"
+    = number_input f, :total_price, step: "any", class: "form-control"
+    = error_tag f, :total_price
+
+  .form-group
+    = submit "Submit", class: "btn btn-primary"

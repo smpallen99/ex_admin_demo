@@ -19,6 +19,7 @@ defmodule ExAdminDemo.Mixfile do
   def application do
     [mod: {ExAdminDemo, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
+                    :phoenix_haml,
                     :phoenix_ecto, :postgrex]]
   end
 
@@ -36,6 +37,9 @@ defmodule ExAdminDemo.Mixfile do
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
+     {:phoenix_haml, github: "smpallen99/phoenix_haml", override: true},
+     {:calliope, github: "nurugger07/calliope", override: true},
+     {:ex_admin, github: "smpallen99/ex_admin"},
      {:cowboy, "~> 1.0"}]
   end
 

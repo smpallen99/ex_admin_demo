@@ -1,0 +1,31 @@
+%h2 Listing products
+
+%table.table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Author
+      %th Price
+      %th Featured
+      %th Available on
+      %th Image file name
+      
+      %th
+  %tbody
+    - for product <- @products do
+      %tr
+        %td= product.title
+        %td= product.description
+        %td= product.author
+        %td= product.price
+        %td= product.featured
+        %td= product.available_on
+        %td= product.image_file_name
+        
+        %td.text-right
+          = link "Show", to: product_path(@conn, :show, product), class: "btn btn-default btn-xs"
+          = link "Edit", to: product_path(@conn, :edit, product), class: "btn btn-default btn-xs"
+          = link "Delete", to: product_path(@conn, :delete, product), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
+
+= link "New product", to: product_path(@conn, :new)

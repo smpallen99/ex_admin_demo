@@ -27,3 +27,6 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+  
+config :phoenix, :template_engines,
+  haml: PhoenixHaml.Engine

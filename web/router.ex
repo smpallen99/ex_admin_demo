@@ -16,6 +16,11 @@ defmodule ExAdminDemo.Router do
   scope "/", ExAdminDemo do
     pipe_through :browser # Use the default browser stack
 
+    resources "/products", ProductController
+    resources "/users", UserController
+    resources "/orders", OrderController
+    resources "/line_items", LineItemController
+    
     get "/", PageController, :index
   end
 

@@ -76,3 +76,14 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+
+.status_tag.ok, .status_tag.published, .status_tag.complete, .status_tag.completed, .status_tag.gree {
+  background: #8daa92;
+}
+.status_tag {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 3px 5px 2px 5px;
+  font-size: 0.8em;
+}

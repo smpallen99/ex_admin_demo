@@ -5,12 +5,13 @@ defmodule ExAdminDemo.User do
     field :username, :string
     field :email, :string
     field :password_hash, :string
+    has_many :orders, ExAdminDemo.Order
 
     timestamps
   end
 
-  @required_fields ~w(username email password_hash)
-  @optional_fields ~w()
+  @required_fields ~w(username email)
+  @optional_fields ~w(password_hash)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

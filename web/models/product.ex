@@ -8,7 +8,7 @@ defmodule ExAdminDemo.Product do
     field :price, :decimal
     field :featured, :boolean, default: false
     field :available_on, Ecto.Date
-    field :image_file_name, :string
+    field :image_file_name, ExAdminDemo.Image.Type
 
     timestamps
   end

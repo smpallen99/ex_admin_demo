@@ -24,7 +24,9 @@ config :ex_admin,
   module: ExAdminDemo,
   modules: [
     ExAdminDemo.ExAdmin.Dashboard,
-    ExAdminDemo.ExAdmin.Product
+    ExAdminDemo.ExAdmin.Product,
+    ExAdminDemo.ExAdmin.User,
+    ExAdminDemo.ExAdmin.Order
 ]
 
 
@@ -38,6 +40,11 @@ config :phoenix, :template_engines,
 
 config :xain, :quote, "'"
 config :xain, :after_callback, {Phoenix.HTML, :raw}
+
+config :arc, bucket: "exadmindemo"
+config :ex_aws, 
+  access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
+  secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

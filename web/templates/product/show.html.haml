@@ -28,7 +28,8 @@
 
   %li
     %strong Image file name:
-    = @product.image_file_name
+    - image = ExAdminDemo.Image.url({@product.image_file_name, @product}, :thumb)
+    %img(src="#{image}")
 
 
 = link "Edit", to: product_path(@conn, :edit, @product)

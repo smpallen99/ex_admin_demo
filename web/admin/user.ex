@@ -48,7 +48,7 @@ defmodule ExAdminDemo.ExAdmin.User do
     end
 
     sidebar "ExAdmin Demo", only: [:index, :show] do
-      Phoenix.View.render ExAdminDemo.AdminView, "sidebar_links.html", model: "users"
+      Phoenix.View.render ExAdminDemo.AdminView, "sidebar_links.html", model: "user"
     end
   end
 end

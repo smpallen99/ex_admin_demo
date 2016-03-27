@@ -81,7 +81,7 @@ defmodule ExAdminDemo.ExAdmin.Product do
     end
 
     sidebar "ExAdmin Demo", only: [:index, :show] do
-      Phoenix.View.render ExAdminDemo.AdminView, "sidebar_links.html", []
+      Phoenix.View.render ExAdminDemo.AdminView, "sidebar_links.html", [model: "product"]
     end
 
   end

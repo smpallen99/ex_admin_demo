@@ -40,8 +40,8 @@ defmodule ExAdminDemo.Mixfile do
      {:phoenix_haml, github: "smpallen99/phoenix_haml", override: true},
      {:calliope, github: "nurugger07/calliope", override: true},
      # {:ex_queb, path: "../ex_queb", override: true},
-     # {:ex_admin, path: "../ex_admin"},
-     {:ex_admin, github: "smpallen99/ex_admin"},
+     {:ex_admin, path: "../ex_admin"},
+     # {:ex_admin, github: "smpallen99/ex_admin", branch: "v0.7.2"},
      {:arc,  "~> 0.5.1"},
      {:arc_ecto, "~> 0.3.2"},
      {:ex_aws, "~> 0.4.10"}, # Required if using Amazon S3

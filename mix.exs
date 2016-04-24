@@ -31,22 +31,24 @@ defmodule ExAdminDemo.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.1.2"},
-     {:phoenix_ecto, "~> 2.0"},
+    [{:phoenix, "~> 1.1"},
+     {:phoenix_ecto, "~> 3.0.0-rc", override: true},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
-     {:phoenix_haml, github: "smpallen99/phoenix_haml", override: true},
-     {:calliope, github: "nurugger07/calliope", override: true},
+     {:phoenix_haml, "~> 0.2"},
+     {:calliope, "~> 0.4"},
+     {:scrivener, "~> 1.1.4", override: true},
      # {:ex_queb, path: "../ex_queb", override: true},
-     # {:ex_admin, path: "../ex_admin"},
-     {:ex_admin, github: "smpallen99/ex_admin"},
+     {:ex_admin, path: "../ex_admin"},
+     # {:ex_admin, "~> 0.7"},
      {:arc,  "~> 0.5.1"},
      {:arc_ecto, "~> 0.3.2"},
      {:ex_aws, "~> 0.4.10"}, # Required if using Amazon S3
      {:httpoison, "~> 0.7"},  # Required if using Amazon S3
-     {:ecto, "~> 1.1.2", override: true},
+     # {:ecto, "~> 1.1.2", override: true},
+     {:ecto, "~> 2.0.0-rc.3", override: true},
      {:faker, "~> 0.6.0"},
      {:number, "~> 0.4.1"},
      {:cowboy, "~> 1.0"}]

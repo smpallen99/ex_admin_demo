@@ -21,6 +21,8 @@ config :ex_admin_demo, ExAdminDemo.Endpoint,
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
       ~r{web/admin/.*(ex)$},
+      ~r{../ex_admin/web/.*(ex)$},
+      ~r{../ex_admin/lib/.*(ex)$},
       ~r{web/templates/.*(eex)$}
     ]
   ]

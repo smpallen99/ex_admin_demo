@@ -37,13 +37,15 @@ defmodule ExAdminDemo.ExAdmin.Dashboard do
           end
         end
       end
-      columns do
-        column do
-          markup :nested do
-             Phoenix.View.render ExAdminDemo.AdminView, "sidebar_links.html", [model: "dashboard"]
-          end
-        end
-      end
+      # columns do
+      #   column do
+      #     # markup :nested do
+      #     panel "ExAdmin Demo" do
+      #        #Phoenix.View.render ExAdminDemo.AdminView, "sidebar_links.html", [model: "dashboard"]
+      #     end
+      #     # end
+      #   end
+      # end
     end
   end
 end

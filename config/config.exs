@@ -22,6 +22,12 @@ config :logger, :console,
 config :ex_admin,
   repo: ExAdminDemo.Repo,
   module: ExAdminDemo,
+  # theme: ExAdmin.Theme.ActiveAdmin,
+  # head_template: {ExAdminDemo.AdminView, "admin_layout.html"},
+  theme_selector: [
+    {"AdminLte",  ExAdmin.Theme.AdminLte2},
+    {"ActiveAdmin", ExAdmin.Theme.ActiveAdmin}
+  ],
   modules: [
     ExAdminDemo.ExAdmin.Dashboard,
     ExAdminDemo.ExAdmin.Product,

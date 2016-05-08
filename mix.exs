@@ -38,12 +38,11 @@ defmodule ExAdminDemo.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:phoenix_haml, "~> 0.2"},
-     {:ex_admin, github: "smpallen99/ex_admin", branch: "themes"},
+     {:ex_admin, github: "smpallen99/ex_admin", branch: "ecto-1.1"},
      {:arc,  "~> 0.5.1"},
      {:arc_ecto, "~> 0.3.2"},
      {:ex_aws, "~> 0.4.10"}, # Required if using Amazon S3
      {:httpoison, "~> 0.7"},  # Required if using Amazon S3
-     {:ecto, "~> 1.1.2", override: true},
      {:faker, "~> 0.6.0"},
      {:number, "~> 0.4.1"},
      {:cowboy, "~> 1.0"}]

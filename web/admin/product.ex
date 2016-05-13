@@ -10,11 +10,11 @@ defmodule ExAdminDemo.ExAdmin.Product do
   register_resource ExAdminDemo.Product do
     menu priority: 2
     scope :all, default: true
-    scope :available, [], fn(q) -> 
+    scope :available, [], fn(q) ->
       now = Ecto.Date.utc
       where(q, [p], p.available_on <= ^now)
-    end 
-    scope :drafts, fn(q) -> 
+    end
+    scope :drafts, fn(q) ->
       now = Ecto.Date.utc
       where(q, [p], p.available_on > ^now)
     end
@@ -23,7 +23,7 @@ defmodule ExAdminDemo.ExAdmin.Product do
     end
 
     index as: :grid, default: true do
-      cell fn(p) -> 
+      cell fn(p) ->
         div do
           a href: get_route_path(conn, :show, p.id) do
             img(src: ExAdminDemo.Image.url({p.image_file_name, p}, :thumb), height: 100)
@@ -39,7 +39,7 @@ defmodule ExAdminDemo.ExAdmin.Product do
         row :description
         row :author
         row :price
-        row :featured
+        row :featured, toggle: true
         row :available_on
         row "Cover", &(img(src: ExAdminDemo.Image.url({&1.image_file_name, &1}), height: 250))
       end
@@ -59,7 +59,7 @@ defmodule ExAdminDemo.ExAdmin.Product do
 
     sidebar "Product Stats", only: :show do
       attributes_table_for resource do
-        row "Total Sold", fn(r) -> 
+        row "Total Sold", fn(r) ->
           Order.find_with_product(r)
           |> Repo.all
           |> Enum.count
@@ -71,7 +71,7 @@ defmodule ExAdminDemo.ExAdmin.Product do
           LineItem
           |> where([l], l.product_id == ^id)
           |> Repo.all
-          |> Enum.reduce(Decimal.new(0.0), fn(li, sum) -> 
+          |> Enum.reduce(Decimal.new(0.0), fn(li, sum) ->
             Decimal.add sum, li.price
           end)
           |> decimal_to_currency

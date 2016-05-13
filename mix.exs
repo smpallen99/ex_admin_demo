@@ -39,7 +39,7 @@ defmodule ExAdminDemo.Mixfile do
      {:gettext, "~> 0.9"},
      {:phoenix_haml, "~> 0.2"},
      {:calliope, "~> 0.4"},
-     {:scrivener, "~> 1.1.4", override: true},
+     # {:scrivener, "~> 1.1.4", override: true},
      # {:ex_queb, path: "../ex_queb", override: true},
      {:ex_admin, path: "../ex_admin"},
      # {:ex_admin, "~> 0.7"},

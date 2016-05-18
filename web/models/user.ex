@@ -1,5 +1,7 @@
 defmodule ExAdminDemo.User do
   use ExAdminDemo.Web, :model
+  import Ecto.Query
+  alias ExAdminDemo.{User}
 
   schema "users" do
     field :username, :string
@@ -23,5 +25,10 @@ defmodule ExAdminDemo.User do
     model
     |> cast(params, @required_fields, @optional_fields)
     |> unique_constraint(:username)
+  end
+
+  def ordered(count) do
+    order_by(User, desc: :id)
+    |> limit(^count)
   end
 end

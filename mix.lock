@@ -35,4 +35,5 @@
   "postgrex": {:hex, :postgrex, "0.11.1", "f48af70c0a58b9bfd1aaa456ec4273624554cfb837726b6a7f0701da4a94b2dd", [:mix], [{:decimal, "~> 1.0", [hex: :decimal, optional: false]}, {:db_connection, "~> 0.2", [hex: :db_connection, optional: false]}, {:connection, "~> 1.0", [hex: :connection, optional: false]}]},
   "ranch": {:hex, :ranch, "1.2.1", "a6fb992c10f2187b46ffd17ce398ddf8a54f691b81768f9ef5f461ea7e28c762", [:make], []},
   "scrivener": {:hex, :scrivener, "1.1.4", "12227cfbcb5b817cca1f5720ce7ad63f453b58ae009f04b74b1e0078d8f6dfd5", [:mix], [{:postgrex, ">= 0.0.0", [hex: :postgrex, optional: true]}, {:ecto, "~> 1.0", [hex: :ecto, optional: false]}]},
-  "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.0", "edee20847c42e379bf91261db474ffbe373f8acb56e9079acb6038d4e0bf414f", [:rebar, :make], []}}
+  "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.0", "edee20847c42e379bf91261db474ffbe373f8acb56e9079acb6038d4e0bf414f", [:rebar, :make], []},
+  "xain": {:hex, :xain, "0.5.3", "0696bf6db7697690f620adf59bd7ced4e4e9ae5eac3240a2a81eae3f93f5ddfe", [:mix], []}}

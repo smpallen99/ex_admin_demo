@@ -22,6 +22,10 @@ config :logger, :console,
 config :ex_admin,
   repo: ExAdminDemo.Repo,
   module: ExAdminDemo,
+  # theme_selector: [
+  #   {"AdminLte",  ExAdmin.Theme.AdminLte2},
+  #   {"ActiveAdmin", ExAdmin.Theme.ActiveAdmin}
+  # ],
   modules: [
     ExAdminDemo.ExAdmin.Dashboard,
     ExAdminDemo.ExAdmin.Product,
@@ -29,12 +33,11 @@ config :ex_admin,
     ExAdminDemo.ExAdmin.Order
 ]
 
-
 # Configure phoenix generators
 config :phoenix, :generators,
   migration: true,
   binary_id: false
-  
+
 config :phoenix, :template_engines,
   haml: PhoenixHaml.Engine
 
@@ -42,7 +45,7 @@ config :xain, :quote, "'"
 config :xain, :after_callback, {Phoenix.HTML, :raw}
 
 config :arc, bucket: "exadmindemo"
-config :ex_aws, 
+config :ex_aws,
   access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
   secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY")
 

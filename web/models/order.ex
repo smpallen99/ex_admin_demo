@@ -1,8 +1,6 @@
 defmodule ExAdminDemo.Order do
   use ExAdminDemo.Web, :model
-  alias ExAdminDemo.Repo
-  alias ExAdminDemo.Order
-  alias ExAdminDemo.LineItem
+  alias ExAdminDemo.{Repo, Order, LineItem}
   import Ecto.Query
 
   @complete "complete"
@@ -33,9 +31,9 @@ defmodule ExAdminDemo.Order do
 
   def recalculate_price!(order) do
     new_price = order.line_items
-    |> Enum.reduce(Decimal.new(0.0), fn(li, acc) -> 
+    |> Enum.reduce(Decimal.new(0.0), fn(li, acc) ->
       Decimal.add li.price, acc
-    end) 
+    end)
     Repo.update! changeset(order, %{total_price: new_price})
   end
 
@@ -58,7 +56,14 @@ defmodule ExAdminDemo.Order do
   end
 
   def complete(query) do
-    where(query, [p], not is_nil(p.checked_out_at)) 
+    where(query, [p], not is_nil(p.checked_out_at))
+  end
+
+  def ordered(count) do
+    where(Order, true)
+    |> complete
+    |> limit(^count)
+    |> preload([:user])
   end
 
 end

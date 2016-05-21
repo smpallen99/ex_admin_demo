@@ -10,8 +10,9 @@ view the [Documentation](http://exadmin.info/doc).
 ## Install
 
   1. Install dependencies with `mix deps.get && npm install`
-  2. Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  3. Start Phoenix endpoint with `mix phoenix.server`
+  2. Configure ExAdmin with `mix admin.install`
+  3. Create and migrate your database with `mix ecto.create && mix ecto.migrate`
+  4. Start Phoenix endpoint with `mix phoenix.server`
 
 Now you can visit [`localhost:4000/admin`](http://localhost:4000/admin) from your browser.
 

@@ -32,14 +32,16 @@ defmodule ExAdminDemo.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [{:phoenix, "~> 1.1.2"},
-     {:phoenix_ecto, "~> 2.0"},
+     {:phoenix_ecto, "~> 3.0.0-rc", override: true},
+     {:ecto, "~> 2.0.0-rc.3", override: true},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:phoenix_haml, "~> 0.2"},
      {:calliope, github: "nurugger07/calliope", override: true},
-     {:ex_admin, "~> 0.7"},
+     # {:ex_admin, path: "../ex_admin6"},
+     {:ex_admin, github: "smpallen99/ex_admin"},
      {:arc,  "~> 0.5.1"},
      {:arc_ecto, "~> 0.3.2"},
      {:ex_aws, "~> 0.4.10"}, # Required if using Amazon S3

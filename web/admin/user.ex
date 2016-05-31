@@ -12,12 +12,12 @@ defmodule ExAdminDemo.ExAdmin.User do
     show customer do
       panel "Order History" do
         table_for customer.orders do
-          column "Order", [sortable: :id], fn(order) -> a " ##{order.id}", href: get_route_path(order, :show, order.id) end
+          column "Order", [sortable: :id], fn(order) -> a " ##{order.id}", href: admin_resource_path(order, :show) end
           column "State", fn(order) -> status_tag(ExAdminDemo.Order.state order) end
           column :checked_out_at, label: "Date", sortable: true
           column "Total", fn(order) -> text decimal_to_currency(order.total_price) end
         end
-      end   
+      end
     end
 
     query do
@@ -39,7 +39,7 @@ defmodule ExAdminDemo.ExAdmin.User do
       |> Repo.all
       attributes_table_for resource do
         row "Total Orders", fn(_) -> text Enum.count(completed) end
-        row "Total Value", fn(_) -> 
+        row "Total Value", fn(_) ->
           Enum.reduce(completed, Decimal.new(0.0), &(Decimal.add(&1.total_price, &2)))
           |> decimal_to_currency
           |> text

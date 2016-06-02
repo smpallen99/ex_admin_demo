@@ -22,14 +22,21 @@ defmodule ExAdminDemo.ExAdmin.Product do
       where(q, [p], p.featured == true)
     end
 
-    index as: :grid, default: true do
+    index as: :grid, default: true, columns: 4 do
       cell fn(p) ->
-        div do
-          a href: get_route_path(conn, :show, p.id) do
-            img(src: ExAdminDemo.Image.url({p.image_file_name, p}, :thumb), height: 100)
+        markup do
+          div ".box" do
+            div ".box-body" do
+              # a href: admin_resource_path(conn, :show, p) do
+              a href: admin_resource_path(p, :show) do
+                img(src: ExAdminDemo.Image.url({p.image_file_name, p}, :thumb), height: 100)
+              end
+            end
+            div ".box-footer" do
+              a truncate(p.title), href: admin_resource_path(p, :show)
+            end
           end
         end
-        a truncate(p.title), href: get_route_path(conn, :show, p.id)
       end
     end
 

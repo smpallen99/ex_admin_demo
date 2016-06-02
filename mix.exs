@@ -41,8 +41,9 @@ defmodule ExAdminDemo.Mixfile do
      {:calliope, "~> 0.4"},
      # {:scrivener, "~> 1.1.4", override: true},
      # {:ex_queb, path: "../ex_queb", override: true},
-     {:ex_admin, path: "../ex_admin"},
+     # {:ex_admin, github: "smpallen99/ex_admin", branch: "new_xain2"},
      # {:ex_admin, "~> 0.7"},
+     {:ex_admin, path: "../ex_admin7"},
      {:arc,  "~> 0.5.1"},
      {:arc_ecto, "~> 0.3.2"},
      {:ex_aws, "~> 0.4.10"}, # Required if using Amazon S3
@@ -51,6 +52,7 @@ defmodule ExAdminDemo.Mixfile do
      {:ecto, "~> 2.0.0-rc.3", override: true},
      {:faker, "~> 0.6.0"},
      {:number, "~> 0.4.1"},
+     # {:xain, path: "../xain", override: true},
      {:cowboy, "~> 1.0"}]
   end
 

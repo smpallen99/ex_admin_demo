@@ -15,18 +15,16 @@ defmodule ExAdminDemo.Order do
     timestamps
   end
 
-  @required_fields ~w(user_id)
-  @optional_fields ~w(checked_out_at total_price)
-
   @doc """
   Creates a changeset based on the `model` and `params`.
 
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, ~w(user_id checked_out_at total_price))
+    |> validate_required([:user_id])
   end
 
   def recalculate_price!(order) do

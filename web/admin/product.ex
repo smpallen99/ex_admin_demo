@@ -27,13 +27,13 @@ defmodule ExAdminDemo.ExAdmin.Product do
       cell fn(p) ->
         div ".box" do
           div ".box-body" do
-            a href: get_route_path(conn, :show, p.id) do
+            a href: admin_resource_path(p, :show) do
               img(src: ExAdminDemo.Image.url({p.image_file_name, p}, :thumb), height: 100)
             end
           end
-        end
-        div ".box-footer" do
-          a truncate(p.title), href: get_route_path(conn, :show, p.id)
+          div ".box-footer" do
+            a truncate(p.title), href: admin_resource_path(p, :show)
+          end
         end
       end
     end
@@ -44,7 +44,7 @@ defmodule ExAdminDemo.ExAdmin.Product do
         row :description
         row :author
         row :price
-        row :featured
+        row :featured, toggle: true
         row :available_on
         row "Cover", &(img(src: ExAdminDemo.Image.url({&1.image_file_name, &1}), height: 250))
       end

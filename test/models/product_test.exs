@@ -3,7 +3,7 @@ defmodule ExAdminDemo.ProductTest do
 
   alias ExAdminDemo.Product
 
-  @valid_attrs %{author: "some content", available_on: "2010-04-17", description: "some content", featured: true, image_file_name: "some content", price: "120.5", title: "some content"}
+  @valid_attrs %{author: "some content", available_on: "2010-04-17", description: "some content", featured: true, price: "120.5", title: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

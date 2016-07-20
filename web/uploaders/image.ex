@@ -26,7 +26,7 @@ defmodule ExAdminDemo.Image do
   # end
 
   # Override the storage directory:
-  def storage_dir(version, {file, scope}) do
+  def storage_dir(_version, {_file, _scope}) do
     # Logger.warn "storage_dir: #{inspect scope}"
     # "uploads/images/#{scope.id}"
     "uploads/images/steve"

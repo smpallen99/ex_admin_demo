@@ -1,10 +1,15 @@
 defmodule ExAdminDemo.OrderControllerTest do
   use ExAdminDemo.ConnCase
 
-  alias ExAdminDemo.Order
-  @valid_attrs %{checked_out_at: "2010-04-17 14:00:00", total_price: "120.5"}
+  alias ExAdminDemo.{Order, Repo, User}
+  @valid_attrs %{checked_out_at: Ecto.DateTime.utc, total_price: "120.5"}
   @invalid_attrs %{}
 
+  setup %{conn: conn} do
+    user = Repo.insert! %User{username: "test", email: "test@test"}
+    valid_attrs = Map.put(@valid_attrs, :user_id, user.id)
+    {:ok, conn: conn, user: user, valid_attrs: valid_attrs}
+  end
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, order_path(conn, :index)
     assert html_response(conn, 200) =~ "Listing orders"
@@ -15,8 +20,8 @@ defmodule ExAdminDemo.OrderControllerTest do
     assert html_response(conn, 200) =~ "New order"
   end
 
-  test "creates resource and redirects when data is valid", %{conn: conn} do
-    conn = post conn, order_path(conn, :create), order: @valid_attrs
+  test "creates resource and redirects when data is valid", %{conn: conn, valid_attrs: valid_attrs} do
+    conn = post conn, order_path(conn, :create), order: valid_attrs
     assert redirected_to(conn) == order_path(conn, :index)
     assert Repo.get_by(Order, @valid_attrs)
   end
@@ -44,11 +49,11 @@ defmodule ExAdminDemo.OrderControllerTest do
     assert html_response(conn, 200) =~ "Edit order"
   end
 
-  test "updates chosen resource and redirects when data is valid", %{conn: conn} do
+  test "updates chosen resource and redirects when data is valid", %{conn: conn, valid_attrs: valid_attrs} do
     order = Repo.insert! %Order{}
-    conn = put conn, order_path(conn, :update, order), order: @valid_attrs
+    conn = put conn, order_path(conn, :update, order), order: valid_attrs
     assert redirected_to(conn) == order_path(conn, :show, order)
-    assert Repo.get_by(Order, @valid_attrs)
+    assert Repo.get_by(Order, valid_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do

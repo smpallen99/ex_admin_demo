@@ -1,8 +1,6 @@
 defmodule ExAdminDemo.Order do
   use ExAdminDemo.Web, :model
-  alias ExAdminDemo.Repo
-  alias ExAdminDemo.Order
-  alias ExAdminDemo.LineItem
+  alias ExAdminDemo.{Repo, Order, LineItem}
   import Ecto.Query
 
   @complete "complete"
@@ -17,25 +15,23 @@ defmodule ExAdminDemo.Order do
     timestamps
   end
 
-  @required_fields ~w(user_id)
-  @optional_fields ~w(checked_out_at total_price)
-
   @doc """
   Creates a changeset based on the `model` and `params`.
 
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, ~w(user_id checked_out_at total_price))
+    |> validate_required([:user_id])
   end
 
   def recalculate_price!(order) do
     new_price = order.line_items
-    |> Enum.reduce(Decimal.new(0.0), fn(li, acc) -> 
+    |> Enum.reduce(Decimal.new(0.0), fn(li, acc) ->
       Decimal.add li.price, acc
-    end) 
+    end)
     Repo.update! changeset(order, %{total_price: new_price})
   end
 
@@ -58,7 +54,14 @@ defmodule ExAdminDemo.Order do
   end
 
   def complete(query) do
-    where(query, [p], not is_nil(p.checked_out_at)) 
+    where(query, [p], not is_nil(p.checked_out_at))
+  end
+
+  def ordered(count) do
+    where(Order, true)
+    |> complete
+    |> limit(^count)
+    |> preload([:user])
   end
 
 end

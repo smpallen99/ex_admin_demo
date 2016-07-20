@@ -23,18 +23,16 @@ defmodule ExAdminDemo.ExAdmin.Product do
     end
 
     index as: :grid, default: true, columns: 4 do
+      import Kernel, except: [div: 2]
       cell fn(p) ->
-        markup do
-          div ".box" do
-            div ".box-body" do
-              # a href: admin_resource_path(conn, :show, p) do
-              a href: admin_resource_path(p, :show) do
-                img(src: ExAdminDemo.Image.url({p.image_file_name, p}, :thumb), height: 100)
-              end
+        div ".box" do
+          div ".box-body" do
+            a href: admin_resource_path(p, :show) do
+              img(src: ExAdminDemo.Image.url({p.image_file_name, p}, :thumb), height: 100)
             end
-            div ".box-footer" do
-              a truncate(p.title), href: admin_resource_path(p, :show)
-            end
+          end
+          div ".box-footer" do
+            a truncate(p.title), href: admin_resource_path(p, :show)
           end
         end
       end

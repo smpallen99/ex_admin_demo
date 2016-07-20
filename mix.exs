@@ -3,7 +3,7 @@ defmodule ExAdminDemo.Mixfile do
 
   def project do
     [app: :ex_admin_demo,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -32,27 +32,20 @@ defmodule ExAdminDemo.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [{:phoenix, "~> 1.1"},
-     {:phoenix_ecto, "~> 3.0.0-rc", override: true},
+     {:phoenix_ecto, "~> 3.0"},
      {:postgrex, ">= 0.0.0"},
+     {:ecto, "~> 2.0", override: true},
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:phoenix_haml, "~> 0.2"},
-     {:calliope, "~> 0.4"},
-     # {:scrivener, "~> 1.1.4", override: true},
-     # {:ex_queb, path: "../ex_queb", override: true},
-     # {:ex_admin, github: "smpallen99/ex_admin", branch: "new_xain2"},
-     # {:ex_admin, "~> 0.7"},
-     {:ex_admin, path: "../ex_admin7"},
+     {:ex_admin, github: "smpallen99/ex_admin"},
      {:arc,  "~> 0.5.1"},
      {:arc_ecto, "~> 0.3.2"},
      {:ex_aws, "~> 0.4.10"}, # Required if using Amazon S3
      {:httpoison, "~> 0.7"},  # Required if using Amazon S3
-     # {:ecto, "~> 1.1.2", override: true},
-     {:ecto, "~> 2.0.0-rc.3", override: true},
      {:faker, "~> 0.6.0"},
      {:number, "~> 0.4.1"},
-     # {:xain, path: "../xain", override: true},
      {:cowboy, "~> 1.0"}]
   end
 

@@ -14,6 +14,8 @@ config :ex_admin_demo, ExAdminDemo.Endpoint,
   pubsub: [name: ExAdminDemo.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :ex_admin_demo, ecto_repos: [ExAdminDemo.Repo]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
